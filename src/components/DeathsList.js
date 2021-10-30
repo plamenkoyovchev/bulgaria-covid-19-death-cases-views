@@ -11,7 +11,7 @@ const deaths = [];
 for (const ageRange of ageRanges) {
     deaths.push(findDeathsCountByAgeRange(ageRange, data));
 }
-
+deaths.sort((a, b) => b.count - a.count);
 const allDeathsCount = deaths.reduce((prevCount, currentRecord) => prevCount + currentRecord.count, 0);
 
 const DeathsList = () => {
