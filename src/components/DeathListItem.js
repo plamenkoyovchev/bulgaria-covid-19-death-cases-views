@@ -9,8 +9,8 @@ const DeathListItem = ({ label, count, allDeathsCount }) => {
     return (
         <Card sx={{ maxWidth: 345 }} className="DeathListItem">
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                    Възраст: {label}
+                <Typography gutterBottom variant="h6" component="div">
+                    Възраст: {label}г.
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     Броят на починалите е <strong>{count}</strong>, което представлява <strong>{percent}%</strong> от починалите.
