@@ -3,3 +3,9 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+@media only screen and (min-width: 1600px) {
+    .DeathList-container {
+        width: 60vw;
+    }
+}
