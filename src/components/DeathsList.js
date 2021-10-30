@@ -21,7 +21,7 @@ const DeathsList = () => {
                 <AlertTitle>Брой починали от началото на пандемията към 30.10.2021г. - <strong>{allDeathsCount}</strong></AlertTitle>
             </Alert>
             <div className="DeathList-container">
-                {deaths && deaths.map(d => (<DeathListItem {...d} allDeathsCount={allDeathsCount} />))}
+                {deaths && deaths.map((d, i) => (<DeathListItem key={i} {...d} allDeathsCount={allDeathsCount} />))}
             </div>
         </>
     );
