@@ -1,22 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import DeathsList from './components/DeathsList';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <DeathsList />
+        <div className="App-small-text">* Данните са взети от <a href="https://data.egov.bg/data/resourceView/18851aca-4c9d-410d-8211-0b725a70bcfd" target="_blank" rel="noreferrer">Портал за отворени данни</a> и е възможно да има неточности!</div>
+        <div className="App-small-text">* Сайтът е разработен само с информативна цел!</div>
       </header>
     </div>
   );
