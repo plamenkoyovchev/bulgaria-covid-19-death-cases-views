@@ -5,7 +5,7 @@ import { data } from '../data';
 import { findDeathsCountByAgeRange } from "../utils/functions";
 import DeathListItem from './DeathListItem';
 
-const ageRanges = ["0 - 9", "10 - 19", "20 - 29", "30 - 39", "40 - 49", "50 - 59", "60 - 69", "70 - 79", "80 - 89", "90+"];
+const ageRanges = ["0 - 12", "12 - 14", "15 - 16", "17 - 19", "20 - 29", "30 - 39", "40 - 49", "50 - 59", "60 - 69", "70 - 79", "80 - 89", "90+"];
 
 const DeathsList = () => {
     const [info, setInfo] = useState({
