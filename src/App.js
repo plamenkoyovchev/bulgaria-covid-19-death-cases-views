@@ -1,5 +1,5 @@
 import './App.css';
-import DeathsList from './components/DeathsList';
+import DeathsList from './components/DeathList/DeathList';
 
 function App() {
   return (

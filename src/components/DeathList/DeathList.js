@@ -1,13 +1,13 @@
 import { Alert, AlertTitle } from '@mui/material';
 import "./DeathList.css";
 import React, { useEffect, useState } from 'react';
-import { data } from '../data';
-import { findDeathsCountByAgeRange } from "../utils/functions";
-import DeathListItem from './DeathListItem';
+import { data } from '../../data';
+import { findDeathsCountByAgeRange } from "../../utils/functions";
+import DeathListItem from '../DeathListItem/DeathListItem';
 
 const ageRanges = ["0 - 12", "12 - 14", "15 - 16", "17 - 19", "20 - 29", "30 - 39", "40 - 49", "50 - 59", "60 - 69", "70 - 79", "80 - 89", "90+"];
 
-const DeathsList = () => {
+const DeathList = () => {
     const [info, setInfo] = useState({
         allDeathsCount: 0,
         records: []
@@ -42,4 +42,4 @@ const DeathsList = () => {
     );
 };
 
-export default DeathsList;
+export default DeathList;
