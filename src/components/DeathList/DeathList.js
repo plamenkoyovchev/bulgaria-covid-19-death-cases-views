@@ -4,8 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { data } from '../../data';
 import { findDeathsCountByAgeRange } from "../../utils/functions";
 import DeathListItem from '../DeathListItem/DeathListItem';
-
-const ageRanges = ["0 - 12", "12 - 14", "15 - 16", "17 - 19", "20 - 29", "30 - 39", "40 - 49", "50 - 59", "60 - 69", "70 - 79", "80 - 89", "90+"];
+import { ageRanges } from "../../utils/constants";
 
 const DeathList = () => {
     const [info, setInfo] = useState({
@@ -15,8 +14,9 @@ const DeathList = () => {
 
     useEffect(() => {
         const processData = () => {
-            const deaths = ageRanges.map(ageRange => findDeathsCountByAgeRange(ageRange, data));
-            deaths.sort((a, b) => b.count - a.count);
+            const deaths = ageRanges
+                .map(ageRange => findDeathsCountByAgeRange(ageRange, data))
+                .sort((a, b) => b.count - a.count);
 
             setInfo({
                 records: [...deaths],
