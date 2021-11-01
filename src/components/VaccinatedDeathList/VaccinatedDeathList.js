@@ -1,6 +1,6 @@
 import { Alert, AlertTitle } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { vaccinated } from "../../vaccinated-data";
+import { vaccinated } from "../../data/vaccinated-data";
 import { ageRanges } from "../../utils/constants";
 import { groupDeathsByVaccine } from "../../utils/functions";
 import VaccinatedDeathListItem from '../VaccinatedDeathListItem/VaccinatedDeathListItem';

@@ -1,6 +1,6 @@
 import { Alert, AlertTitle, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React from 'react';
-import { covidSpread } from "../../covid-spread-data";
+import { covidSpread } from "../../data/covid-spread-data";
 import "./CovidSpreadTableByAge.css";
 
 const CovidSpreadTableByAge = () => {

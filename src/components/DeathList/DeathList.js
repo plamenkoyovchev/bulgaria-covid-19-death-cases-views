@@ -1,7 +1,7 @@
 import { Alert, AlertTitle } from '@mui/material';
 import "./DeathList.css";
 import React, { useEffect, useState } from 'react';
-import { data } from '../../data';
+import { data } from '../../data/data';
 import { findDeathsCountByAgeRange } from "../../utils/functions";
 import DeathListItem from '../DeathListItem/DeathListItem';
 import { ageRanges } from "../../utils/constants";
