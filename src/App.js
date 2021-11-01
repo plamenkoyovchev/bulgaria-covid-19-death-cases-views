@@ -1,4 +1,5 @@
 import './App.css';
+import CovidSpreadTableByAge from './components/CovidSpreadTableByAge/CovidSpreadTableByAge';
 import DeathsList from './components/DeathList/DeathList';
 import VaccinatedDeathList from './components/VaccinatedDeathList/VaccinatedDeathList';
 import vaccinated from "./vaccinated.PNG";
@@ -7,6 +8,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <CovidSpreadTableByAge />
         <div>
           <img width={830} height={90} src={vaccinated} alt="Vaccinanted" />
         </div>
