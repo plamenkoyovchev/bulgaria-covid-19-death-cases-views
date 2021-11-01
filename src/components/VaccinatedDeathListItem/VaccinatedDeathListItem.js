@@ -1,5 +1,6 @@
 import { Card, CardContent, Typography } from '@mui/material';
 import React from 'react';
+import "./VaccinatedDeathListItem.css";
 
 const vaccineNamesMap = {
     "AZ": "Астра Зенека",
@@ -16,7 +17,7 @@ const VaccinatedDeathListItem = ({ label, data }) => {
         .sort((a, b) => b[countIndex].count - a[countIndex].count);
 
     return (
-        <Card sx={{ maxWidth: 345 }} className="DeathListItem">
+        <Card sx={{ maxWidth: 345 }} className="VaccinatedDeathListItem">
             <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
                     Възраст: {label}г.

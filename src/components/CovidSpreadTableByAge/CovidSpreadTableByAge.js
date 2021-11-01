@@ -7,10 +7,11 @@ const CovidSpreadTableByAge = () => {
     const [headerCols, dataCols] = covidSpread;
     const totalCount = dataCols.slice(1, dataCols.length).reduce((prevCount, currentValue) => prevCount + (+currentValue), 0);
     return (
-        <div className="TableWrapper">
+        <>
             <Alert severity="warning">
                 <AlertTitle>Разпространение на COVID-19 към {dataCols[0]} и по възрастови групи</AlertTitle>
             </Alert>
+            <div className="TableWrapper">
             <TableContainer component={Paper} sx={{ maxWidth: 1200 }} className="CovidSpreadTableByAge">
                 <Table aria-label="caption simple table">
                     <caption><strong>Общо: {totalCount}</strong></caption>
@@ -29,8 +30,9 @@ const CovidSpreadTableByAge = () => {
                         </TableRow>
                     </TableBody>
                 </Table>
-            </TableContainer>
-        </div>
+                </TableContainer>
+            </div>
+        </>
     );
 };
 

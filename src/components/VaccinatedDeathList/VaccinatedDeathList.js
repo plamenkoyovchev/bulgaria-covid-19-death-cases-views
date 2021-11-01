@@ -4,6 +4,7 @@ import { vaccinated } from "../../data/vaccinated-data";
 import { ageRanges } from "../../utils/constants";
 import { groupDeathsByVaccine } from "../../utils/functions";
 import VaccinatedDeathListItem from '../VaccinatedDeathListItem/VaccinatedDeathListItem';
+import "./VaccinatedDeathList.css";
 
 const VaccinatedDeathList = () => {
     const [info, setInfo] = useState({
@@ -37,7 +38,7 @@ const VaccinatedDeathList = () => {
             <Alert severity="warning">
                 <AlertTitle>Брой ваксинирани починали от началото на пандемията към 31.10.2021г. - <strong>{allDeathsCount}</strong></AlertTitle>
             </Alert>
-            <div className="DeathList-container">
+            <div className="VaccinatedDeathList">
                 {deaths.length === 0 && (<h3>Loading...</h3>)}
                 {deaths.length > 0 && deaths.map((d, i) => (<VaccinatedDeathListItem key={i} {...d} />))}
             </div>

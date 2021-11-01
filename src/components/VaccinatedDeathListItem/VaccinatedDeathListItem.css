@@ -1,0 +1,13 @@
+.VaccinatedDeathListItem {
+    width: 100%;
+    padding: 5px;
+    margin: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+    .VaccinatedDeathListItem {
+        width: 20%;
+        padding: 5px;
+        margin: 5px;
+    }
+}
