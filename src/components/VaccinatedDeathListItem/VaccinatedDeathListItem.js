@@ -1,9 +1,19 @@
 import { Card, CardContent, Typography } from '@mui/material';
 import React from 'react';
 
-const VaccinatedDeathListItem = ({ label, data }) => {
+const vaccineNamesMap = {
+    "AZ": "Астра Зенека",
+    "COM": "Файзер",
+    "JANSS": "Янсен",
+    "MOD": "Модерна"
+};
 
-    const entries = Object.entries(data).filter(([key,]) => key !== 'total');
+const countIndex = 1;
+
+const VaccinatedDeathListItem = ({ label, data }) => {
+    const entries = Object.entries(data)
+        .filter(([key,]) => key !== 'total')
+        .sort((a, b) => b[countIndex].count - a[countIndex].count);
 
     return (
         <Card sx={{ maxWidth: 345 }} className="DeathListItem">
@@ -13,11 +23,11 @@ const VaccinatedDeathListItem = ({ label, data }) => {
                 </Typography>
                 {entries.length > 0 && entries.map(([key, value]) => (
                     <Typography key={key} variant="body2" color="text.secondary">
-                        {`${key}: ${value.count}`}
+                        {`${vaccineNamesMap[key]}: ${value.count}`}
                     </Typography>
                 ))}
                 <Typography variant="body2" color="text.secondary">
-                    <strong>Total: {data.total}</strong>
+                    <strong>Тотал: {data.total}</strong>
                 </Typography>
             </CardContent>
         </Card>
