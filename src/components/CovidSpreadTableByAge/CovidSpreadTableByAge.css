@@ -1,3 +1,9 @@
+.TableWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .CovidSpreadTableByAge{
     margin: 10px 0;
 }
