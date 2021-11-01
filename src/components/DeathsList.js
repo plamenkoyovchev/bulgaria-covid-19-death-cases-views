@@ -32,7 +32,7 @@ const DeathsList = () => {
     return (
         <>
             <Alert severity="warning">
-                <AlertTitle>Брой починали от началото на пандемията към 30.10.2021г. - <strong>{allDeathsCount}</strong></AlertTitle>
+                <AlertTitle>Брой починали от началото на пандемията към 31.10.2021г. - <strong>{allDeathsCount}</strong></AlertTitle>
             </Alert>
             <div className="DeathList-container">
                 {deaths.length === 0 && (<h3>Loading...</h3>)}
