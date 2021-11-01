@@ -10,12 +10,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h5>COVID-19 IN BULGARIA</h5>
         <div className="Accordion-container">
           <Accordion expanded={true}>
             <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
-              expandIcon={<ExpandMoreIcon />}
             >
               <Typography>Разпространение на COVID-19 по възрастови групи</Typography>
             </AccordionSummary>
@@ -25,9 +26,9 @@ function App() {
           </Accordion>
           <Accordion>
             <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
               id="panel2a-header"
-              expandIcon={<ExpandMoreIcon />}
             >
               <Typography>Ваксинирани срещу COVID-19 по възрастови групи</Typography>
             </AccordionSummary>
@@ -39,9 +40,9 @@ function App() {
           </Accordion>
           <Accordion expanded={true}>
             <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
               aria-controls="panel3a-content"
               id="panel3a-header"
-              expandIcon={<ExpandMoreIcon />}
             >
               <Typography>Ваксинирани починали от COVID-19 по възрастови групи</Typography>
             </AccordionSummary>
@@ -51,9 +52,9 @@ function App() {
           </Accordion>
           <Accordion expanded={true}>
             <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
               aria-controls="panel4a-content"
               id="panel4a-header"
-              expandIcon={<ExpandMoreIcon />}
             >
               <Typography>Починали от COVID-19 по възрастови групи</Typography>
             </AccordionSummary>
