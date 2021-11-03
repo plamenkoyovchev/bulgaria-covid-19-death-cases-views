@@ -36,7 +36,7 @@ const VaccinatedDeathList = () => {
     return (
         <>
             <Alert severity="warning">
-                <AlertTitle>Брой ваксинирани починали от началото на пандемията към 31.10.2021г. - <strong>{allDeathsCount}</strong></AlertTitle>
+                <AlertTitle>Брой ваксинирани починали от началото на пандемията към 03.11.2021г. - <strong>{allDeathsCount}</strong></AlertTitle>
             </Alert>
             <div className="VaccinatedDeathList">
                 {deaths.length === 0 && (<h3>Loading...</h3>)}
