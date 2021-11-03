@@ -2,6 +2,7 @@ import { Alert, AlertTitle } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { vaccinated } from "../../data/vaccinated-data";
 import { vaccinatedHospitalized } from "../../data/vaccinated-hospitalized";
+import { vaccinatedIntesiveCare } from "../../data/vaccinated-hospitalized-intesive-cares";
 import { ageRanges } from "../../utils/constants";
 import { groupByVaccine } from "../../utils/functions";
 import VaccinatedDeathListItem from '../VaccinatedDeathListItem/VaccinatedDeathListItem';
@@ -12,7 +13,9 @@ const VaccinatedDeathList = () => {
         allDeathsCount: 0,
         deathRecords: [],
         allHospitalizedCount: 0,
-        hospitalizedRecords: []
+        hospitalizedRecords: [],
+        allIntesiveCareCount: 0,
+        withIntesiveCare: []
     });
 
     useEffect(() => {
@@ -33,18 +36,28 @@ const VaccinatedDeathList = () => {
                 .filter(rec => rec.data.total !== 0 && rec.label !== undefined)
                 .sort((a, b) => b.data.total - a.data.total);
 
+            const intensive = ageRanges
+                .map(ageRange => ({
+                    label: ageRange,
+                    data: groupByVaccine(ageRange, vaccinatedIntesiveCare)
+                }))
+                .filter(rec => rec.data.total !== 0 && rec.label !== undefined)
+                .sort((a, b) => b.data.total - a.data.total);
+
             setInfo({
                 deathRecords: [...data],
                 allDeathsCount: data.reduce((prevCount, currentRecord) => prevCount + currentRecord.data.total, 0),
                 hospitalizedRecords: [...hospData],
-                allHospitalizedCount: hospData.reduce((prevCount, currentRecord) => prevCount + currentRecord.data.total, 0)
+                allHospitalizedCount: hospData.reduce((prevCount, currentRecord) => prevCount + currentRecord.data.total, 0),
+                withIntesiveCare: [...intensive],
+                allIntesiveCareCount: intensive.reduce((prevCount, currentRecord) => prevCount + currentRecord.data.total, 0)
             });
         };
 
         processData();
     }, []);
 
-    const { deathRecords: deaths, allDeathsCount, hospitalizedRecords: hospitalized, allHospitalizedCount } = info;
+    const { deathRecords: deaths, allDeathsCount, hospitalizedRecords: hospitalized, allHospitalizedCount, allIntesiveCareCount, withIntesiveCare } = info;
 
     return (
         <>
@@ -54,6 +67,13 @@ const VaccinatedDeathList = () => {
             <div className="VaccinatedDeathList">
                 {hospitalized.length === 0 && (<h3>Loading...</h3>)}
                 {hospitalized.length > 0 && hospitalized.map((h, i) => (<VaccinatedDeathListItem key={i} {...h} />))}
+            </div>
+            <Alert severity="warning">
+                <AlertTitle>Брой ваксинирани хоспитализирани в интензивно отделение от началото на пандемията към 03.11.2021г. - <strong>{allIntesiveCareCount}</strong></AlertTitle>
+            </Alert>
+            <div className="VaccinatedDeathList">
+                {withIntesiveCare.length === 0 && (<h3>Loading...</h3>)}
+                {withIntesiveCare.length > 0 && withIntesiveCare.map((h, i) => (<VaccinatedDeathListItem key={i} {...h} />))}
             </div>
             <Alert severity="warning">
                 <AlertTitle>Брой ваксинирани починали от началото на пандемията към 03.11.2021г. - <strong>{allDeathsCount}</strong></AlertTitle>
