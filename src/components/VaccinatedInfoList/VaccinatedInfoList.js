@@ -5,10 +5,10 @@ import { vaccinatedHospitalized } from "../../data/vaccinated-hospitalized";
 import { vaccinatedIntesiveCare } from "../../data/vaccinated-hospitalized-intesive-cares";
 import { ageRanges } from "../../utils/constants";
 import { groupByVaccine } from "../../utils/functions";
-import VaccinatedDeathListItem from '../VaccinatedDeathListItem/VaccinatedDeathListItem';
-import "./VaccinatedDeathList.css";
+import VaccinatedInfoListItem from '../VaccinatedInfoListItem/VaccinatedInfoListItem';
+import "./VaccinatedInfoList.css";
 
-const VaccinatedDeathList = () => {
+const VaccinatedInfoList = () => {
     const [info, setInfo] = useState({
         allDeathsCount: 0,
         deathRecords: [],
@@ -64,26 +64,26 @@ const VaccinatedDeathList = () => {
             <Alert severity="warning">
                 <AlertTitle>Брой ваксинирани хоспитализирани от началото на пандемията към 03.11.2021г. - <strong>{allHospitalizedCount}</strong></AlertTitle>
             </Alert>
-            <div className="VaccinatedDeathList">
+            <div className="VaccinatedInfoList">
                 {hospitalized.length === 0 && (<h3>Loading...</h3>)}
-                {hospitalized.length > 0 && hospitalized.map((h, i) => (<VaccinatedDeathListItem key={i} {...h} />))}
+                {hospitalized.length > 0 && hospitalized.map((h, i) => (<VaccinatedInfoListItem key={i} {...h} />))}
             </div>
             <Alert severity="warning">
                 <AlertTitle>Брой ваксинирани хоспитализирани в интензивно отделение от началото на пандемията към 03.11.2021г. - <strong>{allIntesiveCareCount}</strong></AlertTitle>
             </Alert>
-            <div className="VaccinatedDeathList">
+            <div className="VaccinatedInfoList">
                 {withIntesiveCare.length === 0 && (<h3>Loading...</h3>)}
-                {withIntesiveCare.length > 0 && withIntesiveCare.map((h, i) => (<VaccinatedDeathListItem key={i} {...h} />))}
+                {withIntesiveCare.length > 0 && withIntesiveCare.map((h, i) => (<VaccinatedInfoListItem key={i} {...h} />))}
             </div>
             <Alert severity="warning">
                 <AlertTitle>Брой ваксинирани починали от началото на пандемията към 03.11.2021г. - <strong>{allDeathsCount}</strong></AlertTitle>
             </Alert>
-            <div className="VaccinatedDeathList">
+            <div className="VaccinatedInfoList">
                 {deaths.length === 0 && (<h3>Loading...</h3>)}
-                {deaths.length > 0 && deaths.map((d, i) => (<VaccinatedDeathListItem key={i} {...d} />))}
+                {deaths.length > 0 && deaths.map((d, i) => (<VaccinatedInfoListItem key={i} {...d} />))}
             </div>
         </>
     );
 };
 
-export default VaccinatedDeathList;
+export default VaccinatedInfoList;

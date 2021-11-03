@@ -2,7 +2,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/
 import './App.css';
 import CovidSpreadTableByAge from './components/CovidSpreadTableByAge/CovidSpreadTableByAge';
 import DeathsList from './components/DeathList/DeathList';
-import VaccinatedDeathList from './components/VaccinatedDeathList/VaccinatedDeathList';
+import VaccinatedInfoList from './components/VaccinatedInfoList/VaccinatedInfoList';
 import vaccinated from "./vaccinated.PNG";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -47,7 +47,7 @@ function App() {
               <Typography>Ваксинирани хоспитализирани и починали от COVID-19 по възрастови групи</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <VaccinatedDeathList />
+              <VaccinatedInfoList />
             </AccordionDetails>
           </Accordion>
           <Accordion expanded={true}>

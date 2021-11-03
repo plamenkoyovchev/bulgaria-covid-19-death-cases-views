@@ -1,6 +1,6 @@
 import { Card, CardContent, Typography } from '@mui/material';
 import React from 'react';
-import "./VaccinatedDeathListItem.css";
+import "./VaccinatedInfoListItem.css";
 
 const vaccineNamesMap = {
     "AZ": "Астра Зенека",
@@ -11,13 +11,13 @@ const vaccineNamesMap = {
 
 const countIndex = 1;
 
-const VaccinatedDeathListItem = ({ label, data }) => {
+const VaccinatedInfoListItem = ({ label, data }) => {
     const entries = Object.entries(data)
         .filter(([key,]) => vaccineNamesMap.hasOwnProperty(key))
         .sort((a, b) => b[countIndex].count - a[countIndex].count);
 
     return (
-        <Card sx={{ maxWidth: 345 }} className="VaccinatedDeathListItem">
+        <Card sx={{ maxWidth: 345 }} className="VaccinatedInfoListItem">
             <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
                     Възраст: {label}г.
@@ -35,4 +35,4 @@ const VaccinatedDeathListItem = ({ label, data }) => {
     );
 };
 
-export default VaccinatedDeathListItem;
+export default VaccinatedInfoListItem;
