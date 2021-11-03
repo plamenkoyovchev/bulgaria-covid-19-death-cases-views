@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { vaccinated } from "../../data/vaccinated-data";
 import { vaccinatedHospitalized } from "../../data/vaccinated-hospitalized";
 import { vaccinatedIntesiveCare } from "../../data/vaccinated-hospitalized-intesive-cares";
+import { vaccinatedInfected } from "../../data/vaccinated-infected";
 import { ageRanges } from "../../utils/constants";
 import { groupByVaccine } from "../../utils/functions";
 import VaccinatedInfoListItem from '../VaccinatedInfoListItem/VaccinatedInfoListItem';
@@ -15,7 +16,9 @@ const VaccinatedInfoList = () => {
         allHospitalizedCount: 0,
         hospitalizedRecords: [],
         allIntesiveCareCount: 0,
-        withIntesiveCare: []
+        withIntesiveCare: [],
+        allInfectedCount: 0,
+        allInfected: []
     });
 
     useEffect(() => {
@@ -33,7 +36,7 @@ const VaccinatedInfoList = () => {
                     label: ageRange,
                     data: groupByVaccine(ageRange, vaccinatedHospitalized)
                 }))
-                .filter(rec => rec.data.total !== 0 && rec.label !== undefined)
+                .filter(rec => rec.data.total !== 0)
                 .sort((a, b) => b.data.total - a.data.total);
 
             const intensive = ageRanges
@@ -41,7 +44,15 @@ const VaccinatedInfoList = () => {
                     label: ageRange,
                     data: groupByVaccine(ageRange, vaccinatedIntesiveCare)
                 }))
-                .filter(rec => rec.data.total !== 0 && rec.label !== undefined)
+                .filter(rec => rec.data.total !== 0)
+                .sort((a, b) => b.data.total - a.data.total);
+
+            const infected = ageRanges
+                .map(ageRange => ({
+                    label: ageRange,
+                    data: groupByVaccine(ageRange, vaccinatedInfected)
+                }))
+                .filter(rec => rec.data.total !== 0)
                 .sort((a, b) => b.data.total - a.data.total);
 
             setInfo({
@@ -50,17 +61,35 @@ const VaccinatedInfoList = () => {
                 hospitalizedRecords: [...hospData],
                 allHospitalizedCount: hospData.reduce((prevCount, currentRecord) => prevCount + currentRecord.data.total, 0),
                 withIntesiveCare: [...intensive],
-                allIntesiveCareCount: intensive.reduce((prevCount, currentRecord) => prevCount + currentRecord.data.total, 0)
+                allIntesiveCareCount: intensive.reduce((prevCount, currentRecord) => prevCount + currentRecord.data.total, 0),
+                allInfected: [...infected],
+                allInfectedCount: infected.reduce((prevCount, currentRecord) => prevCount + currentRecord.data.total, 0)
             });
         };
 
         processData();
     }, []);
 
-    const { deathRecords: deaths, allDeathsCount, hospitalizedRecords: hospitalized, allHospitalizedCount, allIntesiveCareCount, withIntesiveCare } = info;
+    const {
+        deathRecords: deaths,
+        allDeathsCount,
+        hospitalizedRecords: hospitalized,
+        allHospitalizedCount,
+        allIntesiveCareCount,
+        withIntesiveCare,
+        allInfectedCount,
+        allInfected
+    } = info;
 
     return (
         <>
+            <Alert severity="warning">
+                <AlertTitle>Брой заразени ваксинирани от началото на пандемията към 03.11.2021г. - <strong>{allInfectedCount}</strong></AlertTitle>
+            </Alert>
+            <div className="VaccinatedInfoList">
+                {allInfected.length === 0 && (<h3>Loading...</h3>)}
+                {allInfected.length > 0 && allInfected.map((h, i) => (<VaccinatedInfoListItem key={i} {...h} />))}
+            </div>
             <Alert severity="warning">
                 <AlertTitle>Брой ваксинирани хоспитализирани от началото на пандемията към 03.11.2021г. - <strong>{allHospitalizedCount}</strong></AlertTitle>
             </Alert>
