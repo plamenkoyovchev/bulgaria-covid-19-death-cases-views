@@ -39,7 +39,7 @@ const vaccineIndex = 1;
 const vaccinatedAgeRangeIndex = 3;
 const vaccinatedDeathsCountIndex = 4;
 
-export const groupDeathsByVaccine = (ageRange, data) => {
+export const groupByVaccine = (ageRange, data) => {
     const filteredData = data.filter(rec => rec[vaccinatedAgeRangeIndex] === ageRange);
     const map = {
         total: 0

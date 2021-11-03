@@ -13,7 +13,7 @@ const countIndex = 1;
 
 const VaccinatedDeathListItem = ({ label, data }) => {
     const entries = Object.entries(data)
-        .filter(([key,]) => key !== 'total')
+        .filter(([key,]) => vaccineNamesMap.hasOwnProperty(key))
         .sort((a, b) => b[countIndex].count - a[countIndex].count);
 
     return (

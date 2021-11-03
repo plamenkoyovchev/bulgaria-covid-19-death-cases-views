@@ -44,7 +44,7 @@ function App() {
               aria-controls="panel3a-content"
               id="panel3a-header"
             >
-              <Typography>Ваксинирани починали от COVID-19 по възрастови групи</Typography>
+              <Typography>Ваксинирани хоспитализирани и починали от COVID-19 по възрастови групи</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <VaccinatedDeathList />
