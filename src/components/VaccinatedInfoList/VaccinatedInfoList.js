@@ -81,31 +81,33 @@ const VaccinatedInfoList = () => {
         allInfected
     } = info;
 
+    const tillDate = "15.01.2022г.";
+
     return (
         <>
             <Alert severity="warning">
-                <AlertTitle>Брой заразени ваксинирани от началото на пандемията към 03.11.2021г. - <strong>{allInfectedCount}</strong></AlertTitle>
+                <AlertTitle>Брой заразени ваксинирани от началото на пандемията към {tillDate} - <strong>{allInfectedCount}</strong></AlertTitle>
             </Alert>
             <div className="VaccinatedInfoList">
                 {allInfected.length === 0 && (<h3>Loading...</h3>)}
                 {allInfected.length > 0 && allInfected.map((h, i) => (<VaccinatedInfoListItem key={i} {...h} />))}
             </div>
             <Alert severity="warning">
-                <AlertTitle>Брой ваксинирани хоспитализирани от началото на пандемията към 03.11.2021г. - <strong>{allHospitalizedCount}</strong></AlertTitle>
+                <AlertTitle>Брой ваксинирани хоспитализирани от началото на пандемията към {tillDate} - <strong>{allHospitalizedCount}</strong></AlertTitle>
             </Alert>
             <div className="VaccinatedInfoList">
                 {hospitalized.length === 0 && (<h3>Loading...</h3>)}
                 {hospitalized.length > 0 && hospitalized.map((h, i) => (<VaccinatedInfoListItem key={i} {...h} />))}
             </div>
             <Alert severity="warning">
-                <AlertTitle>Брой ваксинирани хоспитализирани в интензивно отделение от началото на пандемията към 03.11.2021г. - <strong>{allIntesiveCareCount}</strong></AlertTitle>
+                <AlertTitle>Брой ваксинирани хоспитализирани в интензивно отделение от началото на пандемията към {tillDate} - <strong>{allIntesiveCareCount}</strong></AlertTitle>
             </Alert>
             <div className="VaccinatedInfoList">
                 {withIntesiveCare.length === 0 && (<h3>Loading...</h3>)}
                 {withIntesiveCare.length > 0 && withIntesiveCare.map((h, i) => (<VaccinatedInfoListItem key={i} {...h} />))}
             </div>
             <Alert severity="warning">
-                <AlertTitle>Брой ваксинирани починали от началото на пандемията към 03.11.2021г. - <strong>{allDeathsCount}</strong></AlertTitle>
+                <AlertTitle>Брой ваксинирани починали от началото на пандемията към {tillDate} - <strong>{allDeathsCount}</strong></AlertTitle>
             </Alert>
             <div className="VaccinatedInfoList">
                 {deaths.length === 0 && (<h3>Loading...</h3>)}
